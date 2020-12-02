@@ -37,7 +37,8 @@ func main() {
 						Aliases: []string{"l"},
 						Usage:   "Used to specify `language` of output text",
 						Value:   "english",
-						EnvVars: []string{"LANG"},
+						// EnvVars:  []string{"LANG"},
+						Required: true,
 					},
 				},
 				Action: func(c *cli.Context) error {
