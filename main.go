@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/urfave/cli/v2"
 )
@@ -26,12 +27,27 @@ func main() {
 			}
 			return nil
 		},
-		Flags: []cli.Flag{
-			&cli.StringFlag{
-				Name:    "lang",
-				Aliases: []string{"l"},
-				Usage:   "Used to specify `language` of output text",
-				Value:   "english",
+		Commands: []*cli.Command{
+			{
+				Name:  "time",
+				Usage: "Print current system time",
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:    "lang",
+						Aliases: []string{"l"},
+						Usage:   "Used to specify `language` of output text",
+						Value:   "english",
+					},
+				},
+				Action: func(c *cli.Context) error {
+					lang := c.String("lang")
+					if lang == "spanish" {
+						fmt.Println("Hola User! Time is ", time.Now().String())
+					} else {
+						fmt.Println("Hello User! Time is ", time.Now().String())
+					}
+					return nil
+				},
 			},
 		},
 	}
