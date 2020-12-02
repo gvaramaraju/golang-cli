@@ -28,9 +28,10 @@ func main() {
 		},
 		Flags: []cli.Flag{
 			&cli.StringFlag{
-				Name:  "lang",
-				Usage: "Used to specify `language` of output text",
-				Value: "english",
+				Name:    "lang",
+				Aliases: []string{"l"},
+				Usage:   "Used to specify `language` of output text",
+				Value:   "english",
 			},
 		},
 	}
