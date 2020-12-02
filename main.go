@@ -29,7 +29,7 @@ func main() {
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:  "lang",
-				Usage: "Used to specify lang of output text",
+				Usage: "Used to specify `language` of output text",
 				Value: "english",
 			},
 		},
